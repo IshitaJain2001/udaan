@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Udaan - Every Child Deserves Education</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero emotional">
+      <div class="carousel">
+        <div class="slide" style="background-image: url('./download.png');"></div>
+        <div class="slide" style="background-image: url('./img2.jpg');"></div>
+        <div class="slide" style="background-image: url('./img3.jpg');"></div>
+      </div>
+      <div class="overlay">
+        <h1>Udaan</h1>
+        <p>
+          "Ek maa ki aankhon mein chamak ho, ek pita ke chehre pe garv ho — yeh tabhi sambhav hai jab baccha padhta hai."
+        </p>
+        <a href="why.html" class="cta-button">Why Education?</a>
+      </div>
+    </header>
+
+    <section class="cta">
+      <h2>Be the wind beneath your child's wings</h2>
+      <a href="get-involved.html" class="cta-button">Join the Mission</a>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Udaan | Let's Build Brighter Tomorrows</p>
+      <a href="contact.html">Contact Us</a>
+    </footer>
+    <script>
+      let slideIndex = 0;
+      const slides = document.querySelectorAll(".slide");
+      function showSlides() {
+        slides.forEach((slide) => {
+          slide.style.opacity = "0";
+        });
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+        slides[slideIndex - 1].style.opacity = "1";
+        setTimeout(showSlides, 4000);
+      }
+      window.onload = showSlides;
+    </script>
+  </body>
+</html>

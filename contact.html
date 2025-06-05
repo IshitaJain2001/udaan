@@ -1,0 +1,20 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Udaan</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <a href="index.html" class="cta-button">Back to Home</a>
+    </section>
+  </body>
+</html>
