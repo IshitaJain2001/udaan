@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,47 +7,103 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-     <marquee behavior="scroll" direction="left" class="emotional-marquee">
-      "शिक्षा वो दीपक है जो हर अंधेरे घर को रोशन कर सकता है — अपने बच्चे को पढ़ने से न रोकें।"
+    <!-- Language Toggle -->
+    <button id="lang-toggle">स्विच करें अंग्रेज़ी में</button>
+
+    <!-- Marquee -->
+    <marquee behavior="scroll" direction="left" class="emotional-marquee">
+      शिक्षा वो दीपक है जो हर अंधेरे घर को रोशन कर सकता है — अपने बच्चे को पढ़ने से न रोकें।
     </marquee>
+
+    <!-- Hero Section -->
     <header class="hero emotional">
       <div class="carousel">
         <div class="slide" style="background-image: url('./download.png');"></div>
         <div class="slide" style="background-image: url('./img2.jpg');"></div>
         <div class="slide" style="background-image: url('./img3.jpg');"></div>
-        
       </div>
       <div class="overlay">
-        <h1>Udaan</h1>
-        <p>
-          "Ek maa ki aankhon mein chamak ho, ek pita ke chehre pe garv ho — yeh tabhi sambhav hai jab baccha padhta hai."
+        <h1 id="brand-heading">
+          उड़ान
+        </h1>
+        <p id="udaan-quote">
+          एक माँ की आँखों में चमक हो, एक पिता के चेहरे पर गर्व हो — ये तभी संभव है जब बच्चा पढ़ता है।
         </p>
-        <a href="why.html" class="cta-button">Why Education?</a>
+        <a href="why.html" class="cta-button" id="header-btn">शिक्षा क्यों?</a>
       </div>
     </header>
 
+    <!-- CTA Section -->
     <section class="cta">
-      <h2>Be the wind beneath your child's wings</h2>
-      <a href="get-involved.html" class="cta-button">Join the Mission</a>
+      <h2 id="cta-title">अपने बच्चे को उड़ान दो — उसके पंख बनो</h2>
+      <a href="get-involved.html" class="cta-button" id="cta-btn">मिशन से जुड़ें</a>
     </section>
 
+    <!-- Footer -->
     <footer>
-      <p>&copy; 2025 Udaan | Let's Build Brighter Tomorrows</p>
-      <a href="contact.html">Contact Us</a>
+      <p id="footer-text">&copy; 2025 उड़ान | चलो मिलकर सुनहरा कल बनाएं</p>
+      <a href="contact.html" id="footer-link">संपर्क करें</a>
     </footer>
+
+    <!-- Scripts -->
     <script>
+      // Carousel logic
       let slideIndex = 0;
       const slides = document.querySelectorAll(".slide");
+
       function showSlides() {
-        slides.forEach((slide) => {
-          slide.style.opacity = "0";
-        });
-        slideIndex++;
-        if (slideIndex > slides.length) slideIndex = 1;
+        slides.forEach((slide) => (slide.style.opacity = "0"));
+        slideIndex = (slideIndex + 1) > slides.length ? 1 : slideIndex + 1;
         slides[slideIndex - 1].style.opacity = "1";
         setTimeout(showSlides, 4000);
       }
+
       window.onload = showSlides;
+
+      // Language Toggle
+      const toggleButton = document.getElementById("lang-toggle");
+      let isHindi = true;
+
+      toggleButton.addEventListener("click", () => {
+        isHindi = !isHindi;
+
+        // Toggle button text
+        toggleButton.textContent = isHindi
+          ? "स्विच करें अंग्रेज़ी में"
+          : "Switch to Hindi";
+
+        // Content switching
+        document.querySelector(".emotional-marquee").textContent = isHindi
+          ? "शिक्षा वो दीपक है जो हर अंधेरे घर को रोशन कर सकता है — अपने बच्चे को पढ़ने से न रोकें।"
+          : "Education is the lamp that can light every dark home — never stop your child from learning.";
+
+        document.getElementById("udaan-quote").textContent = isHindi
+          ? "एक माँ की आँखों में चमक हो, एक पिता के चेहरे पर गर्व हो — ये तभी संभव है जब बच्चा पढ़ता है।"
+          : "A sparkle in a mother’s eyes, pride on a father’s face — this is possible only when a child is educated.";
+
+        document.getElementById("header-btn").textContent = isHindi
+          ? "शिक्षा क्यों?"
+          : "Why Education?";
+
+        document.getElementById("cta-title").textContent = isHindi
+          ? "अपने बच्चे को उड़ान दो — उसके पंख बनो"
+          : "Be the wind beneath your child's wings";
+
+        document.getElementById("cta-btn").textContent = isHindi
+          ? "मिशन से जुड़ें"
+          : "Join the Mission";
+
+        document.getElementById("footer-text").innerHTML = isHindi
+          ? "&copy; 2025 उड़ान | चलो मिलकर सुनहरा कल बनाएं"
+          : "&copy; 2025 Udaan | Let's Build Brighter Tomorrows";
+
+        document.getElementById("footer-link").textContent = isHindi
+          ? "संपर्क करें"
+          : "Contact Us";
+           document.getElementById("brand-heading").textContent = isHindi
+          ? "उड़ान"
+          : "Udaan";
+      });
     </script>
   </body>
 </html>
