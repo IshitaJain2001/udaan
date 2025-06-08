@@ -17,6 +17,7 @@
         <input type="number" id="amount" placeholder="दान राशि (₹)" required />
         <button type="submit" id="submit-btn">दान करें</button>
       </form>
+      <a href="./index.html" class="cta-button"><button class="home-btn" id="back-btn" ></button></a>
     </div>
   </header>
 
@@ -30,7 +31,8 @@
           email: "ईमेल (वैकल्पिक)",
           amount: "दान राशि (₹)"
         },
-        submitBtn: "दान करें"
+        submitBtn: "दान करें",
+        backBtn: "मुख्य पृष्ठ पर वापस जाएं"
       },
       en: {
         title: "Donate Page",
@@ -40,7 +42,8 @@
           email: "Email (Optional)",
           amount: "Donation Amount (₹)"
         },
-        submitBtn: "Donate"
+        submitBtn: "Donate",
+          backBtn: "Back To Home Page"
       }
     };
 
@@ -55,6 +58,7 @@
       document.getElementById("email").placeholder = data.placeholders.email;
       document.getElementById("amount").placeholder = data.placeholders.amount;
       document.getElementById("submit-btn").textContent = data.submitBtn;
+       document.getElementById("back-btn").textContent = data.backBtn;
     }
 
     window.onload = () => {

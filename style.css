@@ -254,5 +254,10 @@ form button:hover {
   transform: scale(1.05);
 }
 
+#back-btn{
+  border: 0;
+  background-color: transparent;
+}
+
 
 

@@ -3,63 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>सहायता प्राप्त करें | उड़ान</title>
+  <title>दान करें | उड़ान</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
     <div class="overlay">
-      <h1 id="page-title">सहायता पृष्ठ</h1>
-      <p id="page-desc">कृपया अपनी जानकारी साझा करें ताकि हम मदद कर सकें।</p>
-      <form id="help-form">
+      <h1 id="page-title">दान पृष्ठ</h1>
+      <p id="page-desc">आपके सहयोग के लिए धन्यवाद! कृपया नीचे जानकारी भरें।</p>
+      <form id="donate-form">
         <input type="text" id="name" placeholder="आपका नाम" required />
-        <input type="tel" id="phone" placeholder="संपर्क नंबर" required />
-        <textarea id="help-desc" placeholder="आपको किस प्रकार की सहायता चाहिए?" required></textarea>
-        <button type="submit" id="submit-btn">सबमिट करें</button>
+        <input type="email" id="email" placeholder="ईमेल (वैकल्पिक)" />
+        <input type="number" id="amount" placeholder="दान राशि (₹)" required />
+        <button type="submit" id="submit-btn">दान करें</button>
       </form>
+   <a href="./index.html" class="cta-button"><button class="home-btn" id="back-btn" ></button></a>
+
     </div>
   </header>
 
   <script>
-    // Language data
     const langData = {
       hi: {
-        title: "सहायता पृष्ठ",
-        desc: "कृपया अपनी जानकारी साझा करें ताकि हम मदद कर सकें।",
+        title: "दान पृष्ठ",
+        desc: "आपके सहयोग के लिए धन्यवाद! कृपया नीचे जानकारी भरें।",
         placeholders: {
           name: "आपका नाम",
-          phone: "संपर्क नंबर",
-          helpDesc: "आपको किस प्रकार की सहायता चाहिए?"
+          email: "ईमेल (वैकल्पिक)",
+          amount: "दान राशि (₹)"
         },
-        submitBtn: "सबमिट करें"
+        submitBtn: "दान करें",
+         backBtn: "मुख्य पृष्ठ पर वापस जाएं"
       },
       en: {
-        title: "Help Page",
-        desc: "Please share your details so we can assist you.",
+        title: "Donate Page",
+        desc: "Thank you for your support! Please fill out the information below.",
         placeholders: {
           name: "Your Name",
-          phone: "Contact Number",
-          helpDesc: "What kind of help do you need?"
+          email: "Email (Optional)",
+          amount: "Donation Amount (₹)"
         },
-        submitBtn: "Submit"
+        submitBtn: "Donate",
+          backBtn: "Back To Home Page"
       }
     };
 
     function setLanguage(lang) {
-      const data = langData[lang] || langData.hi; // Default to Hindi if not found
+      const data = langData[lang] || langData.hi;
 
-      document.documentElement.lang = lang; // Update lang attribute
+      document.documentElement.lang = lang;
 
       document.getElementById("page-title").textContent = data.title;
       document.getElementById("page-desc").textContent = data.desc;
       document.getElementById("name").placeholder = data.placeholders.name;
-      document.getElementById("phone").placeholder = data.placeholders.phone;
-      document.getElementById("help-desc").placeholder = data.placeholders.helpDesc;
+      document.getElementById("email").placeholder = data.placeholders.email;
+      document.getElementById("amount").placeholder = data.placeholders.amount;
       document.getElementById("submit-btn").textContent = data.submitBtn;
+        document.getElementById("back-btn").textContent = data.backBtn;
     }
 
     window.onload = () => {
-      // Read language from localStorage (default Hindi)
       const lang = localStorage.getItem("lang") || "hi";
       setLanguage(lang);
     };
