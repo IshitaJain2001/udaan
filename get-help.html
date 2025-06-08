@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>सहायता प्राप्त करें | उड़ान</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1 id="page-title">सहायता पृष्ठ</h1>
+      <p id="page-desc">कृपया अपनी जानकारी साझा करें ताकि हम मदद कर सकें।</p>
+      <form id="help-form">
+        <input type="text" id="name" placeholder="आपका नाम" required />
+        <input type="tel" id="phone" placeholder="संपर्क नंबर" required />
+        <textarea id="help-desc" placeholder="आपको किस प्रकार की सहायता चाहिए?" required></textarea>
+        <button type="submit" id="submit-btn">सबमिट करें</button>
+      </form>
+    </div>
+  </header>
+
+  <script>
+    // Language data
+    const langData = {
+      hi: {
+        title: "सहायता पृष्ठ",
+        desc: "कृपया अपनी जानकारी साझा करें ताकि हम मदद कर सकें।",
+        placeholders: {
+          name: "आपका नाम",
+          phone: "संपर्क नंबर",
+          helpDesc: "आपको किस प्रकार की सहायता चाहिए?"
+        },
+        submitBtn: "सबमिट करें"
+      },
+      en: {
+        title: "Help Page",
+        desc: "Please share your details so we can assist you.",
+        placeholders: {
+          name: "Your Name",
+          phone: "Contact Number",
+          helpDesc: "What kind of help do you need?"
+        },
+        submitBtn: "Submit"
+      }
+    };
+
+    function setLanguage(lang) {
+      const data = langData[lang] || langData.hi; // Default to Hindi if not found
+
+      document.documentElement.lang = lang; // Update lang attribute
+
+      document.getElementById("page-title").textContent = data.title;
+      document.getElementById("page-desc").textContent = data.desc;
+      document.getElementById("name").placeholder = data.placeholders.name;
+      document.getElementById("phone").placeholder = data.placeholders.phone;
+      document.getElementById("help-desc").placeholder = data.placeholders.helpDesc;
+      document.getElementById("submit-btn").textContent = data.submitBtn;
+    }
+
+    window.onload = () => {
+      // Read language from localStorage (default Hindi)
+      const lang = localStorage.getItem("lang") || "hi";
+      setLanguage(lang);
+    };
+  </script>
+</body>
+</html>

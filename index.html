@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-  <div class="top-bar">
-  <marquee behavior="scroll" direction="left" class="emotional-marquee">
-    शिक्षा वो दीपक है जो हर अंधेरे घर को रोशन कर सकता है — अपने बच्चे को पढ़ने से न रोकें।
-  </marquee>
-  <button id="lang-toggle">स्विच करें अंग्रेज़ी में</button>
-</div>
-
+    <div class="top-bar">
+      <marquee behavior="scroll" class="emotional-marquee" scrollamount="6">
+        शिक्षा वो दीपक है जो हर अंधेरे घर को रोशन कर सकता है — अपने बच्चे को पढ़ने से न रोकें।
+      </marquee>
+      <button id="lang-toggle">स्विच करें अंग्रेज़ी में</button>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero emotional">
@@ -23,15 +22,23 @@
         <div class="slide" style="background-image: url('./img3.jpg');"></div>
       </div>
       <div class="overlay">
-        <h1 id="brand-heading">
-          उड़ान
-        </h1>
+        <h1 id="brand-heading">उड़ान</h1>
         <p id="udaan-quote">
           एक माँ की आँखों में चमक हो, एक पिता के चेहरे पर गर्व हो — ये तभी संभव है जब बच्चा पढ़ता है।
         </p>
         <a href="why.html" class="cta-button" id="header-btn">शिक्षा क्यों?</a>
       </div>
     </header>
+
+    <!-- Choice Section (Need Help / Donate) -->
+    <section class="choice-section">
+      <h2 id="choice-heading">आप यहाँ किस उद्देश्य से आए हैं?</h2>
+      <p id="choice-subtext">कृपया एक विकल्प चुनें ताकि हम आपकी बेहतर सहायता कर सकें।</p>
+      <div class="choice-buttons">
+        <a href="get-help.html" class="choice-btn help-btn" id="help-btn">मुझे बच्चे के लिए सहायता चाहिए</a>
+        <a href="donate.html" class="choice-btn donate-btn" id="donate-btn">मैं कुछ दान करना चाहता/चाहती हूँ</a>
+      </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="cta">
@@ -57,52 +64,81 @@
         slides[slideIndex - 1].style.opacity = "1";
         setTimeout(showSlides, 4000);
       }
+      window.onload = () => {
+        showSlides();
+        // Load language from localStorage or default Hindi
+        const savedLang = localStorage.getItem("lang") || "hi";
+        if (savedLang === "en") {
+          setLanguage(false);
+        } else {
+          setLanguage(true);
+        }
+      };
 
-      window.onload = showSlides;
-
-      // Language Toggle
+      // Language toggle setup
       const toggleButton = document.getElementById("lang-toggle");
       let isHindi = true;
 
-      toggleButton.addEventListener("click", () => {
-        isHindi = !isHindi;
+      function setLanguage(hindi) {
+        isHindi = hindi;
+        localStorage.setItem("lang", hindi ? "hi" : "en");
 
-        // Toggle button text
-        toggleButton.textContent = isHindi
+        toggleButton.textContent = hindi
           ? "स्विच करें अंग्रेज़ी में"
           : "Switch to Hindi";
 
-        // Content switching
-        document.querySelector(".emotional-marquee").textContent = isHindi
+        document.querySelector(".emotional-marquee").textContent = hindi
           ? "शिक्षा वो दीपक है जो हर अंधेरे घर को रोशन कर सकता है — अपने बच्चे को पढ़ने से न रोकें।"
           : "Education is the lamp that can light every dark home — never stop your child from learning.";
 
-        document.getElementById("udaan-quote").textContent = isHindi
+        document.getElementById("udaan-quote").textContent = hindi
           ? "एक माँ की आँखों में चमक हो, एक पिता के चेहरे पर गर्व हो — ये तभी संभव है जब बच्चा पढ़ता है।"
           : "A sparkle in a mother’s eyes, pride on a father’s face — this is possible only when a child is educated.";
 
-        document.getElementById("header-btn").textContent = isHindi
+        document.getElementById("header-btn").textContent = hindi
           ? "शिक्षा क्यों?"
           : "Why Education?";
 
-        document.getElementById("cta-title").textContent = isHindi
+        document.getElementById("cta-title").textContent = hindi
           ? "अपने बच्चे को उड़ान दो — उसके पंख बनो"
           : "Be the wind beneath your child's wings";
 
-        document.getElementById("cta-btn").textContent = isHindi
+        document.getElementById("cta-btn").textContent = hindi
           ? "मिशन से जुड़ें"
           : "Join the Mission";
 
-        document.getElementById("footer-text").innerHTML = isHindi
+        document.getElementById("footer-text").innerHTML = hindi
           ? "&copy; 2025 उड़ान | चलो मिलकर सुनहरा कल बनाएं"
           : "&copy; 2025 Udaan | Let's Build Brighter Tomorrows";
 
-        document.getElementById("footer-link").textContent = isHindi
+        document.getElementById("footer-link").textContent = hindi
           ? "संपर्क करें"
           : "Contact Us";
-           document.getElementById("brand-heading").textContent = isHindi
+
+        document.getElementById("brand-heading").textContent = hindi
           ? "उड़ान"
           : "Udaan";
+
+        // ** Choice section buttons text toggle **
+        document.getElementById("choice-heading").textContent = hindi
+          ? "आप यहाँ किस उद्देश्य से आए हैं?"
+          : "What is your purpose here?";
+
+        document.getElementById("choice-subtext").textContent = hindi
+          ? "कृपया एक विकल्प चुनें ताकि हम आपकी बेहतर सहायता कर सकें।"
+          : "Please select an option so we can assist you better.";
+
+        document.getElementById("help-btn").textContent = hindi
+          ? "मुझे बच्चे के लिए सहायता चाहिए"
+          : "I need help for a child";
+
+        document.getElementById("donate-btn").textContent = hindi
+          ? "मैं कुछ दान करना चाहता/चाहती हूँ"
+          : "I want to donate something";
+      }
+
+      toggleButton.addEventListener("click", () => {
+        setLanguage(!isHindi);
       });
     </script>
   </body>

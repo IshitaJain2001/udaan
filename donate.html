@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>दान करें | उड़ान</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1 id="page-title">दान पृष्ठ</h1>
+      <p id="page-desc">आपके सहयोग के लिए धन्यवाद! कृपया नीचे जानकारी भरें।</p>
+      <form id="donate-form">
+        <input type="text" id="name" placeholder="आपका नाम" required />
+        <input type="email" id="email" placeholder="ईमेल (वैकल्पिक)" />
+        <input type="number" id="amount" placeholder="दान राशि (₹)" required />
+        <button type="submit" id="submit-btn">दान करें</button>
+      </form>
+    </div>
+  </header>
+
+  <script>
+    const langData = {
+      hi: {
+        title: "दान पृष्ठ",
+        desc: "आपके सहयोग के लिए धन्यवाद! कृपया नीचे जानकारी भरें।",
+        placeholders: {
+          name: "आपका नाम",
+          email: "ईमेल (वैकल्पिक)",
+          amount: "दान राशि (₹)"
+        },
+        submitBtn: "दान करें"
+      },
+      en: {
+        title: "Donate Page",
+        desc: "Thank you for your support! Please fill out the information below.",
+        placeholders: {
+          name: "Your Name",
+          email: "Email (Optional)",
+          amount: "Donation Amount (₹)"
+        },
+        submitBtn: "Donate"
+      }
+    };
+
+    function setLanguage(lang) {
+      const data = langData[lang] || langData.hi;
+
+      document.documentElement.lang = lang;
+
+      document.getElementById("page-title").textContent = data.title;
+      document.getElementById("page-desc").textContent = data.desc;
+      document.getElementById("name").placeholder = data.placeholders.name;
+      document.getElementById("email").placeholder = data.placeholders.email;
+      document.getElementById("amount").placeholder = data.placeholders.amount;
+      document.getElementById("submit-btn").textContent = data.submitBtn;
+    }
+
+    window.onload = () => {
+      const lang = localStorage.getItem("lang") || "hi";
+      setLanguage(lang);
+    };
+  </script>
+</body>
+</html>
