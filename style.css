@@ -258,6 +258,23 @@ form button:hover {
   border: 0;
   background-color: transparent;
 }
+.btn-back {
+  display: inline-block;
+  margin-top: 40px;  /* thoda bada margin */
+  padding: 12px 25px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+}
+.btn-back:hover {
+  background-color: #2980b9;
+}
+
 
 
 

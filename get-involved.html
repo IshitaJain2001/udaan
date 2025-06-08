@@ -1,19 +1,177 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Involved - Udaan</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="cta">
-      <h2>Become a Part of the Change</h2>
-      <form onsubmit="event.preventDefault(); alert('Thank you for your support!'); this.reset();">
-        <input type="text" placeholder="Your Name" required />
-        <input type="tel" placeholder="Phone Number" required />
-        <button type="submit">Join Us</button>
-      </form>
-      <a href="index.html" class="cta-button">Back to Home</a>
-    </section>
-  </body>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>हमारा मिशन | उड़ान</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      line-height: 1.65;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+    ul {
+      margin-left: 25px;
+      margin-bottom: 25px;
+      list-style-type: disc;
+    }
+    ul li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    .btn-back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 1.1rem;
+    }
+    .btn-back:hover {
+      background-color: #2980b9;
+    }
+    .lang-toggle {
+      margin-bottom: 20px;
+      text-align: right;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      color: #3498db;
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+    .lang-toggle button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-toggle">
+      <button id="btn-hi">हिन्दी</button> | 
+      <button id="btn-en">English</button>
+    </div>
+
+    <h1 id="title">हमारा मिशन</h1>
+    <div id="content">
+      <!-- Dynamic content will go here -->
+    </div>
+
+    <button class="btn-back" id="back-btn">मुख्य पृष्ठ पर वापस जाएं</button>
+  </div>
+
+  <script>
+    const langData = {
+      hi: {
+        title: "हमारा मिशन",
+        content: `
+          <p>हर बच्चे में एक उज्जवल भविष्य के लिए असीम संभावनाएँ होती हैं, चाहे उनकी परिस्थितियाँ कैसी भी हों। हमारा मिशन उन बच्चों के लिए एक प्रकाश स्तंभ बनने का है जो आर्थिक रूप से कमजोर हैं, जो शिक्षा की मूलभूत सुविधाएँ प्राप्त नहीं कर पाते, या दृष्टिहीनता जैसी चुनौतियों का सामना कर रहे हैं। हम विश्वास करते हैं कि शिक्षा और समर्थन हर बच्चे का अधिकार है, और हम प्रतिबद्ध हैं कि उन्हें वह अवसर प्रदान करें जिससे वे अपनी पूरी क्षमता तक पहुंच सकें।</p>
+
+          <p>हमारे विशेष कार्यक्रम बच्चों को समग्र विकास के लिए कई आयामों में सहायता प्रदान करते हैं। न केवल हम पढ़ाई के क्षेत्र में मदद करते हैं, बल्कि उनकी रचनात्मक और शारीरिक विकास के लिए भी विविध प्रकार की सहायक गतिविधियाँ उपलब्ध कराते हैं, ताकि वे आत्मविश्वासी, स्वतंत्र और समाज के योगदानकर्ता बन सकें।</p>
+          
+          <h2>हमारी सेवाएँ और पहल</h2>
+          <ul>
+            <li><strong>विशेषज्ञ शिक्षकों द्वारा निर्देश:</strong> हमारे पास अनुभवी और प्रशिक्षित शिक्षक हैं जो बच्चों की विशेष आवश्यकताओं को समझते हैं। दृष्टिहीन बच्चों के लिए ब्रेल लिपि में शिक्षण सामग्री उपलब्ध कराई जाती है और व्यक्तिगत ध्यान दिया जाता है ताकि वे आसानी से सीख सकें।</li>
+            <li><strong>मिड-डे मील योजना:</strong> स्वस्थ और पोषित बच्चे बेहतर तरीके से सीखते हैं। इसलिए, हम हर दिन पौष्टिक भोजन उपलब्ध कराते हैं ताकि बच्चों का शारीरिक विकास सही दिशा में हो।</li>
+            <li><strong>सह-पाठ्यक्रम गतिविधियाँ:</strong> संगीत, नाटक, चित्रकला, खेल और योग जैसी गतिविधियाँ बच्चों के आत्मविश्वास और रचनात्मकता को बढ़ावा देती हैं। ये गतिविधियाँ बच्चों में टीम भावना, नेतृत्व कौशल, और अनुशासन विकसित करने में मदद करती हैं।</li>
+            <li><strong>ब्रेल और सहायक उपकरण:</strong> दृष्टिहीन बच्चों के लिए ब्रेल लिपि के अतिरिक्त, हम स्क्रीन रीडर, ऑडियो किताबें, और टैक्टाइल मैप्स जैसे तकनीकी उपकरण भी प्रदान करते हैं। इससे उनकी पढ़ाई को आसान और अधिक प्रभावी बनाया जाता है।</li>
+            <li><strong>छात्र-शिक्षक स्टाइपेंड प्रोग्राम:</strong> यदि कोई बच्चा विशेष रूप से मेधावी और जिम्मेदार होता है, तो उसे छोटे बच्चों को पढ़ाने का अवसर दिया जाता है। इस सेवा के लिए हम एक स्टाइपेंड प्रदान करते हैं, ताकि वे आर्थिक रूप से भी समर्थ हो सकें और अपने नेतृत्व कौशल को विकसित कर सकें।</li>
+            <li><strong>सामाजिक और भावनात्मक समर्थन:</strong> शिक्षा केवल किताबी ज्ञान तक सीमित नहीं है। हम बच्चों को भावनात्मक और मानसिक स्वास्थ्य समर्थन भी देते हैं ताकि वे मानसिक रूप से मजबूत बन सकें।</li>
+          </ul>
+
+          <h2>हमारा दृष्टिकोण और प्रेरणा</h2>
+          <p>हमें पता है कि हर बच्चा खास है। कई बार, परिस्थितियाँ हमारे सपनों को रोकने लगती हैं, लेकिन हमें उम्मीद और विश्वास की ताकत कभी नहीं खोनी चाहिए। हम उन बच्चों के लिए काम करते हैं जिन्हें सामान्य तरीके से शिक्षा तक पहुँच नहीं मिल पाती। हमारा मानना है कि यदि हम उन्हें सही अवसर और संसाधन दें, तो वे किसी भी बाधा को पार कर अपने जीवन को पूरी तरह से बदल सकते हैं।</p>
+
+          <p>हमारा मिशन केवल शिक्षा तक सीमित नहीं है, बल्कि बच्चों के जीवन में सकारात्मक बदलाव लाने के लिए पूरी तरह समर्पित है। हम चाहते हैं कि वे न केवल स्कूल के नंबरों में अच्छे हों, बल्कि अपने जीवन के हर पहलू में सफल हों — चाहे वह आत्म-विश्वास हो, नेतृत्व हो या समाज में योगदान देना हो।</p>
+
+          <h2>आपका समर्थन महत्वपूर्ण है</h2>
+          <p>हमारा यह मिशन तभी सफल होगा जब हमें आपके जैसे सहयोगियों का समर्थन मिलेगा। आपकी दान राशि, समय, और प्रेरणा से हम और अधिक बच्चों तक पहुँच सकते हैं, उन्हें बेहतर शिक्षा और संसाधन प्रदान कर सकते हैं, और एक सकारात्मक बदलाव ला सकते हैं।</p>
+
+          <p>अगर आप हमारे मिशन से जुड़ना चाहते हैं, तो कृपया हमसे संपर्क करें। आपका हर छोटा कदम एक बच्चे के जीवन में बड़ी क्रांति ला सकता है। आइए मिलकर उड़ान भरें और हर बच्चे को एक सुनहरा भविष्य दें।</p>
+        `,
+        backBtn: "मुख्य पृष्ठ पर वापस जाएं"
+      },
+      en: {
+        title: "Our Mission",
+        content: `
+          <p>Every child holds boundless potential for a bright future, no matter their circumstances. Our mission is to be a beacon of hope for children who are economically disadvantaged, unable to afford education, or facing challenges such as visual impairment. We believe education and support are the rights of every child, and we are committed to providing them with opportunities to reach their fullest potential.</p>
+
+          <p>Our specialized programs offer holistic support to children across various dimensions of growth. We not only assist academically but also provide extracurricular activities that foster creativity, confidence, and physical development, enabling children to become self-reliant and contributing members of society.</p>
+          
+          <h2>Our Services and Initiatives</h2>
+          <ul>
+            <li><strong>Instruction by Expert Teachers:</strong> We have experienced and trained educators who understand the unique needs of children. For visually impaired children, learning materials in Braille are provided along with personalized attention to help them learn effectively.</li>
+            <li><strong>Mid-day Meal Program:</strong> Healthy and nourished children learn better. Therefore, we provide nutritious meals daily to ensure proper physical growth of the children.</li>
+            <li><strong>Extracurricular Activities:</strong> Activities like music, drama, painting, sports, and yoga enhance children's confidence and creativity. These activities foster teamwork, leadership skills, and discipline.</li>
+            <li><strong>Braille and Assistive Tools:</strong> Besides Braille, we provide screen readers, audiobooks, and tactile maps for visually impaired children to make learning easier and more effective.</li>
+            <li><strong>Student-Teacher Stipend Program:</strong> Talented and responsible children get the opportunity to teach younger kids. We provide a stipend for this role, encouraging their leadership skills and providing financial support.</li>
+            <li><strong>Social and Emotional Support:</strong> Education is not limited to academics. We offer emotional and mental health support to children to help them build resilience.</li>
+          </ul>
+
+          <h2>Our Vision and Inspiration</h2>
+          <p>We understand that every child is special. Sometimes, circumstances try to block our dreams, but we must never lose hope and faith. We work for children who do not have access to education in conventional ways. We believe that with the right opportunities and resources, they can overcome any obstacle and transform their lives completely.</p>
+
+          <p>Our mission is not just limited to academics but is dedicated to bringing positive change in children’s lives. We want them not only to excel in school but to succeed in all facets of life — be it self-confidence, leadership, or contributing to society.</p>
+
+          <h2>Your Support Matters</h2>
+          <p>This mission can only succeed with the support of compassionate people like you. Your donations, time, and encouragement help us reach more children, provide better education and resources, and create meaningful change.</p>
+
+          <p>If you wish to join our mission, please contact us. Every small step you take can create a huge revolution in a child's life. Let’s soar together and give every child a golden future.</p>
+        `,
+        backBtn: "Back to Home"
+      }
+    };
+
+    function setLanguage(lang) {
+      const data = langData[lang] || langData.hi;
+      document.documentElement.lang = lang;
+      document.getElementById("title").textContent = data.title;
+      document.getElementById("content").innerHTML = data.content;
+      document.getElementById("back-btn").textContent = data.backBtn;
+      localStorage.setItem("lang", lang);
+    }
+
+    document.getElementById("btn-hi").addEventListener("click", () => setLanguage("hi"));
+    document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+
+    document.getElementById("back-btn").addEventListener("click", () => {
+      window.location.href = "index.html"; // Change to your homepage URL
+    });
+
+    window.onload = () => {
+      const lang = localStorage.getItem("lang") || "hi";
+      setLanguage(lang);
+    };
+  </script>
+</body>
 </html>
