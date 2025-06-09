@@ -276,5 +276,40 @@ form button:hover {
 }
 
 
+.moving-icons {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fef6e4;
+  padding: 20px 0;
+}
+
+.icon-track {
+  display: inline-block;
+  animation: scrollIcons 25s linear infinite;
+}
+
+.icon {
+  height: 200px;
+  width: auto;
+  margin: 0 30px;
+  vertical-align: middle;
+}
+
+@keyframes scrollIcons {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 
+.moment-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #d84315;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
