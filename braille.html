@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Braille About Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    #braille-text {
+      font-size: 30px;
+      margin-top: 20px;
+      letter-spacing: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="braille-heading"></h1>
+  <p id="braille-para"></p>
+  <p id="braille-text"></p>
+
+  <script>
+    // Hindi content
+    const contentHindi = {
+      heading: "ब्रेल लिपि क्या है?",
+      para: "यह दृष्टिहीन लोगों के लिए एक स्पर्श आधारित पठन पद्धति है, जो उन्हें अक्षरों और शब्दों को महसूस करने की सुविधा देती है।",
+      braille: "⠃⠗⠑⠊⠇ ⠇⠊⠏⠊ ⠅⠽⠁ ⠓⠑⠂"  // Example Hindi Braille dots
+    };
+
+    // English content
+    const contentEnglish = {
+      heading: "What is Braille?",
+      para: "Braille is a tactile reading system used by visually impaired people to feel letters and words through touch.",
+      braille: "⠺⠓⠁⠞ ⠊⠎ ⠃⠗⠁⠊⠇⠇⠑⠟"  // Example English Braille dots
+    };
+
+    const headingEl = document.getElementById('braille-heading');
+    const paraEl = document.getElementById('braille-para');
+    const brailleTextEl = document.getElementById('braille-text');
+
+    // Function to set content based on language code
+    function setContentByLang(lang) {
+      if(lang === 'en') {
+        headingEl.textContent = contentEnglish.heading;
+        paraEl.textContent = contentEnglish.para;
+        brailleTextEl.textContent = contentEnglish.braille;
+      } else {
+        headingEl.textContent = contentHindi.heading;
+        paraEl.textContent = contentHindi.para;
+        brailleTextEl.textContent = contentHindi.braille;
+      }
+    }
+
+    // On page load, get saved language from localStorage (default to Hindi)
+    window.onload = () => {
+      const savedLang = localStorage.getItem('lang') || 'hi';
+      setContentByLang(savedLang);
+    };
+  </script>
+
+</body>
+</html>

@@ -1,20 +1,105 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Udaan</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Basic styling for icons */
+      .social-icons {
+        margin-top: 15px;
+      }
+      .social-icons a {
+        margin-right: 15px;
+        text-decoration: none;
+        font-size: 24px;
+        color: #25D366; /* WhatsApp green */
+      }
+      .social-icons a.insta {
+        color: #E4405F; /* Instagram pink */
+      }
+    </style>
+    <!-- Include Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-p6OxyC1T8u+3M+/ErTT6+J9V2oGokOda1yWf5tTAhrGgTprM1uNxRpe6QQ0oZfPr6Gyx1QFZefLGyjGrVuANhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <section class="contact">
-      <h2>Contact Us</h2>
-      <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
+      <h2 id="contact-heading">Contact Us</h2>
+      <form
+        onsubmit="event.preventDefault(); alert(successMessage); this.reset();"
+      >
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Email Address" required />
+        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit" id="send-btn">Send Message</button>
       </form>
-      <a href="index.html" class="cta-button">Back to Home</a>
+
+      <div class="social-icons">
+        <a
+          href="https://wa.me/919876543210"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+        <a
+          href="https://instagram.com/yourprofile"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="insta"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+
+      <a href="index.html" class="cta-button" id="back-home">Back to Home</a>
     </section>
+
+    <script>
+      // Check language from localStorage, default hindi
+      const lang = localStorage.getItem("lang") || "hi";
+
+      // Text content translations
+      const textContent = {
+        hi: {
+          contactHeading: "संपर्क करें",
+          namePlaceholder: "आपका नाम",
+          emailPlaceholder: "ईमेल पता",
+          messagePlaceholder: "आपका संदेश",
+          sendBtn: "संदेश भेजें",
+          backHome: "मुख्य पृष्ठ पर वापस जाएं",
+          successMessage: "संदेश सफलतापूर्वक भेजा गया!",
+        },
+        en: {
+          contactHeading: "Contact Us",
+          namePlaceholder: "Your Name",
+          emailPlaceholder: "Email Address",
+          messagePlaceholder: "Your Message",
+          sendBtn: "Send Message",
+          backHome: "Back to Home",
+          successMessage: "Message sent successfully!",
+        },
+      };
+
+      // Set content based on lang
+      document.getElementById("contact-heading").textContent =
+        textContent[lang].contactHeading;
+      document.getElementById("name").placeholder = textContent[lang].namePlaceholder;
+      document.getElementById("email").placeholder = textContent[lang].emailPlaceholder;
+      document.getElementById("message").placeholder =
+        textContent[lang].messagePlaceholder;
+      document.getElementById("send-btn").textContent = textContent[lang].sendBtn;
+      document.getElementById("back-home").textContent = textContent[lang].backHome;
+
+      // Make success message available in global scope for alert
+      const successMessage = textContent[lang].successMessage;
+    </script>
   </body>
 </html>

@@ -286,7 +286,7 @@ form button:hover {
 .icon-track {
   display: inline-flex;
     white-space: nowrap;
-  animation: scrollIcons 30s linear infinite;
+  animation: scrollIcons 20s linear infinite;
 }
 
 .icon {
@@ -311,4 +311,177 @@ form button:hover {
   font-weight: bold;
   margin-bottom: 20px;
   font-family: 'Segoe UI', sans-serif;
+}
+
+#chatbot-popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 10000;
+}
+
+.chatbot-box {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.chatbot-header {
+  background-color: #0055a5;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.chatbot-body {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.suggestions {
+  margin-bottom: 15px;
+}
+
+.question-btn {
+  margin: 5px 5px 0 0;
+  padding: 7px 10px;
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.response-box {
+  display: none;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 6px;
+  min-height: 50px;
+}
+
+.resources-section {
+  padding: 60px 20px;
+  background-color: #fff8f0;
+  text-align: center;
+}
+
+#resources-heading {
+  font-size: 32px;
+  color: #d84315;
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Common styles for all sub-sections */
+.resources-section h3 {
+  font-size: 24px;
+  color: #b71c1c;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.resources-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 40px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.resources-section li {
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.resources-section li:hover {
+  transform: translateX(5px);
+}
+
+.resources-section a {
+  color: #1e88e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resources-section a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout for 3 sections */
+.study-materials, .videos, .parenting-tips {
+  margin-bottom: 50px;
+}
+
+/* Optional: different background for each type (for visual variety) */
+.study-materials li {
+  background-color: #e3f2fd;
+}
+
+.videos li {
+  background-color: #fff3e0;
+}
+
+.parenting-tips li {
+  background-color: #ede7f6;
+}
+
+#braille-link {
+  display: block;
+    font-weight: 600;
+    padding: 6px 12px;
+  text-align: center;
+  margin: 20px auto;  /* ऊपर नीचे मार्जिन */
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  color: #007BFF;  /* लिंक का रंग */
+  text-decoration: none;
+   box-shadow: 0 4px 8px rgba(26, 115, 232, 0.4);
+}
+
+#braille-link:hover {
+  text-decoration: underline;
+ 
+    text-decoration: none;
+  box-shadow: 0 4px 8px rgba(4, 79, 171, 0.4);
+}
+
+/* Mobile devices ke liye */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+  .overlay p {
+    font-size: 18px;
+  }
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .reasons {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
