@@ -50,7 +50,16 @@
     <img src="./matrisudha_7bc2c7e0-055e-11e6-afce-cd590874c67e.jpg" alt="globe" class="icon" />
     <img src="./unnamed.jpg" alt="school" class="icon" />
     <img src="./eating.jpg" alt="child" class="icon" />
-    <!-- Repeat for smoother loop -->
+ 
+    <img src="./new-delhi-india-10212019-group-600nw-1991748236.webp" alt="book" class="icon" />
+    <img src="./image3-23.jpg" alt="pencil" class="icon" />
+    <img src="./eating.jpg" alt="globe" class="icon" />
+     <img src="./dance.avif" alt="book" class="icon" />
+    <img src="./image3-23.jpg" alt="pencil" class="icon" />
+    <img src="./matrisudha_7bc2c7e0-055e-11e6-afce-cd590874c67e.jpg" alt="globe" class="icon" />
+    <img src="./unnamed.jpg" alt="school" class="icon" />
+    <img src="./eating.jpg" alt="child" class="icon" />
+ 
     <img src="./new-delhi-india-10212019-group-600nw-1991748236.webp" alt="book" class="icon" />
     <img src="./image3-23.jpg" alt="pencil" class="icon" />
     <img src="./eating.jpg" alt="globe" class="icon" />
@@ -162,6 +171,15 @@
       toggleButton.addEventListener("click", () => {
         setLanguage(!isHindi);
       });
+      // Clone icon track to make the image scroll seamless & infinite
+window.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".icon-track");
+  if (track) {
+    const clone = track.cloneNode(true);
+    track.parentNode.appendChild(clone);
+  }
+});
+  
     </script>
   </body>
 </html>

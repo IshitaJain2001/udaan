@@ -284,23 +284,22 @@ form button:hover {
 }
 
 .icon-track {
-  display: inline-block;
-  animation: scrollIcons 25s linear infinite;
+  display: inline-flex;
+    white-space: nowrap;
+  animation: scrollIcons 30s linear infinite;
 }
 
 .icon {
   height: 200px;
-  width: auto;
-  margin: 0 30px;
-  vertical-align: middle;
+ margin-right: 20px;
 }
 
 @keyframes scrollIcons {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
