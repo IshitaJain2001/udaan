@@ -1,65 +1,89 @@
+
+CHANDAN KUMAR JHA
+11:34 (4 minutes ago)
+to me
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>दान करें | उड़ान</title>
+  <title>मदद माँगें | उड़ान</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
     <div class="overlay">
-      <h1 id="page-title">दान पृष्ठ</h1>
-      <p id="page-desc">आपके सहयोग के लिए धन्यवाद! कृपया नीचे जानकारी भरें।</p>
-      <form id="donate-form">
+      <h1 id="page-title">मदद पृष्ठ</h1>
+      <p id="page-desc">कृपया नीचे अपनी आवश्यकता भरें। हम आपकी मदद करने की पूरी कोशिश करेंगे।</p>
+      <form id="help-form">
         <input type="text" id="name" placeholder="आपका नाम" required />
         <input type="email" id="email" placeholder="ईमेल (वैकल्पिक)" />
-        <input type="number" id="amount" placeholder="दान राशि (₹)" required />
-        <button type="submit" id="submit-btn">दान करें</button>
+        <select id="help-type" required>
+          <option value="" disabled selected>मदद का प्रकार चुनें</option>
+          <option value="books">पुस्तकें</option>
+          <option value="device">डिवाइस</option>
+          <option value="guidance">शैक्षिक मार्गदर्शन</option>
+          <option value="financial">वित्तीय सहायता</option>
+          <option value="other">अन्य</option>
+        </select>
+        <textarea id="details" placeholder="अपनी ज़रूरत का विवरण दें" required></textarea>
+        <button type="submit" id="submit-btn">मदद माँगें</button>
       </form>
-   <a href="./index.html" class="cta-button"><button class="home-btn" id="back-btn" ></button></a>
-
+      <a href="./index.html" class="cta-button">
+        <button class="home-btn" id="back-btn"></button>
+      </a>
     </div>
   </header>
 
   <script>
     const langData = {
       hi: {
-        title: "दान पृष्ठ",
-        desc: "आपके सहयोग के लिए धन्यवाद! कृपया नीचे जानकारी भरें।",
+        title: "मदद पृष्ठ",
+        desc: "कृपया नीचे अपनी आवश्यकता भरें। हम आपकी मदद करने की पूरी कोशिश करेंगे।",
         placeholders: {
           name: "आपका नाम",
           email: "ईमेल (वैकल्पिक)",
-          amount: "दान राशि (₹)"
+          helpType: "मदद का प्रकार चुनें",
+          details: "अपनी ज़रूरत का विवरण दें"
         },
-        submitBtn: "दान करें",
-         backBtn: "मुख्य पृष्ठ पर वापस जाएं"
+        options: ["पुस्तकें", "डिवाइस", "शैक्षिक मार्गदर्शन", "वित्तीय सहायता", "अन्य"],
+        submitBtn: "मदद माँगें",
+        backBtn: "मुख्य पृष्ठ पर वापस जाएं"
       },
       en: {
-        title: "Donate Page",
-        desc: "Thank you for your support! Please fill out the information below.",
+        title: "Help Request Page",
+        desc: "Please fill in your need below. We will try our best to assist you.",
         placeholders: {
           name: "Your Name",
           email: "Email (Optional)",
-          amount: "Donation Amount (₹)"
+          helpType: "Select Help Type",
+          details: "Describe your need"
         },
-        submitBtn: "Donate",
-          backBtn: "Back To Home Page"
+        options: ["Books", "Device", "Educational Guidance", "Financial Support", "Other"],
+        submitBtn: "Request Help",
+        backBtn: "Back To Home Page"
       }
     };
 
     function setLanguage(lang) {
       const data = langData[lang] || langData.hi;
-
       document.documentElement.lang = lang;
 
       document.getElementById("page-title").textContent = data.title;
       document.getElementById("page-desc").textContent = data.desc;
       document.getElementById("name").placeholder = data.placeholders.name;
       document.getElementById("email").placeholder = data.placeholders.email;
-      document.getElementById("amount").placeholder = data.placeholders.amount;
+      document.getElementById("help-type").options[0].textContent = data.placeholders.helpType;
+      document.getElementById("details").placeholder = data.placeholders.details;
       document.getElementById("submit-btn").textContent = data.submitBtn;
-        document.getElementById("back-btn").textContent = data.backBtn;
+      document.getElementById("back-btn").textContent = data.backBtn;
+
+      const options = data.options;
+      const select = document.getElementById("help-type");
+      for (let i = 1; i <= options.length; i++) {
+        select.options[i] && (select.options[i].textContent = options[i - 1]);
+      }
     }
 
     window.onload = () => {
